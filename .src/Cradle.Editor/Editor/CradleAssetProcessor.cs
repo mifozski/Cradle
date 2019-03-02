@@ -157,6 +157,9 @@ namespace Cradle.Editor
 					};
 					foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
 					{
+						if (assembly.IsDynamic)
+							continue;
+
 						try
 						{
 							// On .NET 4+, the correct way to check this is Assembly.IsDynamic (otherwise NotSupportedException is thrown),

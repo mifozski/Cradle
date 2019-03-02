@@ -76,6 +76,9 @@ namespace Cradle.Editor
 			int libIndex = 0;
 			foreach(Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
 			{
+				if (assembly.IsDynamic)
+					continue;
+
 				// Skip references external to the project
 				try
 				{
